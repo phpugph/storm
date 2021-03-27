@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit backupGlobals="false"
+     backupStaticAttributes="false"
+     colors="true"
+     convertErrorsToExceptions="true"
+     convertNoticesToExceptions="true"
+     convertWarningsToExceptions="true"
+     processIsolation="false"
+     stopOnFailure="false"
+     syntaxCheck="false"
+     bootstrap="test/bootstrap.php"
+>
+  <testsuites>
+    <testsuite name="Storm Factory Tests">
+      <file>test/SqlFactory.php</file>
+      <file>test/SqlException.php</file>
+    </testsuite>
+    <testsuite name="Storm Query Tests">
+      <file>test/Query/AbstractQuery.php</file>
+      <file>test/Query/Delete.php</file>
+      <file>test/Query/Insert.php</file>
+      <file>test/Query/Select.php</file>
+      <file>test/Query/Update.php</file>
+      <file>test/Query/MySql/Alter.php</file>
+      <file>test/Query/MySql/Create.php</file>
+      <file>test/Query/MySql/Utility.php</file>
+      <file>test/Query/PostGreSql/Alter.php</file>
+      <file>test/Query/PostGreSql/Create.php</file>
+      <file>test/Query/PostGreSql/Delete.php</file>
+      <file>test/Query/PostGreSql/Insert.php</file>
+      <file>test/Query/PostGreSql/Select.php</file>
+      <file>test/Query/PostGreSql/Update.php</file>
+      <file>test/Query/PostGreSql/Utility.php</file>
+      <file>test/Query/Sqlite/Alter.php</file>
+      <file>test/Query/Sqlite/Create.php</file>
+      <file>test/Query/Sqlite/Utility.php</file>
+    </testsuite>
+    <testsuite name="Storm Mapper Tests">
+      <file>test/Mapper/AbstractMapper.php</file>
+      <file>test/Mapper/Model.php</file>
+      <file>test/Mapper/Search.php</file>
+      <file>test/Mapper/Collection.php</file>
+      <file>test/Mapper/Update.php</file>
+      <file>test/Mapper/Remove.php</file>
+    </testsuite>
+    <testsuite name="Storm Engine Tests">
+      <file>test/Engine/AbstractEngine.php</file>
+      <file>test/Engine/MySql.php</file>
+      <file>test/Engine/PostGreSql.php</file>
+      <file>test/Engine/Sqlite.php</file>
+    </testsuite>
+  </testsuites>
+  <filter>
+  <whitelist>
+    <directory suffix=".php">./src</directory>
+    <exclude>
+      <directory>./vendor</directory>
+      <directory>./test</directory>
+    </exclude>
+  </whitelist>
+  </filter>
+</phpunit>
