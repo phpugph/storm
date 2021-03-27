@@ -24,7 +24,7 @@ class Storm_Engine_MySql_Test extends TestCase
    * Sets up the fixture, for example, opens a network connection.
    * This method is called before a test is executed.
    */
-  protected function setUp()
+  protected function setUp(): void
   {
     $this->object = SqlFactory::load(include(dirname(__DIR__).'/assets/mysql.php'));
     $schema = file_get_contents(dirname(__DIR__).'/assets/mysql-schema.sql');
@@ -35,7 +35,7 @@ class Storm_Engine_MySql_Test extends TestCase
    * Tears down the fixture, for example, closes a network connection.
    * This method is called after a test is executed.
    */
-  protected function tearDown()
+  protected function tearDown(): void
   {
   }
 
@@ -124,7 +124,7 @@ class Storm_Engine_MySql_Test extends TestCase
       'address_updated' => date('Y-m-d H:i:s')
     ));
     $actual = $this->object->getTableSchema('address');
-    $this->assertContains('CREATE TABLE `address`', $actual);
+    $this->assertStringContainsString('CREATE TABLE `address`', $actual);
   }
 
   /**
