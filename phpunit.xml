@@ -45,7 +45,7 @@
       <file>test/Engine/AbstractEngine.php</file>
       <file>test/Engine/MySql.php</file>
       <file>test/Engine/PostGreSql.php</file>
-      <file>test/Engine/Sqlite.php</file>
+      <!--<file>test/Engine/Sqlite.php</file>-->
     </testsuite>
   </testsuites>
 
