@@ -32,7 +32,7 @@ class Storm_Query_AbstractQuery_Test extends TestCase
   }
 
   /**
-   * @covers Storm\AbstractQuery::__toString
+   * @covers Storm\Query\AbstractQuery::__toString
    */
   public function test__toString()
   {

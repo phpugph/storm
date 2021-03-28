@@ -137,7 +137,7 @@ class Storm_Engine_MySql_Test extends TestCase
   }
 
   /**
-   * @covers Storm\Search::getRows
+   * @covers Storm\Mapper\Search::getRows
    */
   public function testQuery()
   {
@@ -169,7 +169,7 @@ class Storm_Engine_MySql_Test extends TestCase
   }
 
   /**
-   * @covers Storm\Search::getTotal
+   * @covers Storm\Mapper\Search::getTotal
    */
   public function testTransaction()
   {
