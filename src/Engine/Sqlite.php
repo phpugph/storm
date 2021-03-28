@@ -108,6 +108,8 @@ class Sqlite extends AbstractEngine implements EngineInterface
 
     $results = $this->query($query, $this->getBinds());
 
+    print_r($results);
+
     $columns = [];
     foreach ($results as $column) {
       $key = null;
