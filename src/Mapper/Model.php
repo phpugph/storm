@@ -116,8 +116,7 @@ class Model extends DataModel
   public function insert(
     ?string $table = null,
     EngineInterface $database = null
-  ): Model
-  {
+  ): Model {
     //if no table
     if (is_null($table)) {
       //if no default table either
@@ -168,8 +167,7 @@ class Model extends DataModel
     ?string $table = null,
     EngineInterface $database = null,
     $primary = null
-  ): Model
-  {
+  ): Model {
     //if no table
     if (is_null($table)) {
       //if no default table either
@@ -236,8 +234,7 @@ class Model extends DataModel
     ?string $table = null,
     EngineInterface $database = null,
     $primary = null
-  ): Model
-  {
+  ): Model {
     //if no table
     if (is_null($table)) {
       //if no default table either
@@ -319,8 +316,7 @@ class Model extends DataModel
     ?string $table = null,
     EngineInterface $database = null,
     $primary = null
-  ): Model
-  {
+  ): Model {
     //if no table
     if (is_null($table)) {
       //if no default table either

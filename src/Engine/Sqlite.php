@@ -179,8 +179,7 @@ class Sqlite extends AbstractEngine implements EngineInterface
     string $table,
     array $settings,
     $bind = true
-  ): EngineInterface
-  {
+  ): EngineInterface {
     //this is an array of arrays
     foreach ($settings as $index => $setting) {
       //Sqlite no available multi insert

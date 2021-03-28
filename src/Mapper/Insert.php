@@ -86,8 +86,7 @@ class Insert extends AbstractMapper implements MapperInterface
     string $value,
     bool $bind = true,
     int $index = 0
-  ): MapperInterface
-  {
+  ): MapperInterface {
     $this->rows[$index][$key] = [
       'value' => $value,
       'bind' => $bind

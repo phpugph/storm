@@ -586,8 +586,7 @@ abstract class AbstractEngine
     string $name,
     $value,
     array $setting
-  ): EngineInterface
-  {
+  ): EngineInterface {
     //first check to see if the row exists
     $row = $this->getRow($table, $name, $value);
 
@@ -659,8 +658,7 @@ abstract class AbstractEngine
     array $settings,
     $filters = null,
     $bind = true
-  ): EngineInterface
-  {
+  ): EngineInterface {
     //build the query
     $query = $this->getUpdateQuery($table);
 

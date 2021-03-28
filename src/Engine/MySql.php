@@ -80,8 +80,7 @@ class MySql extends AbstractEngine implements EngineInterface
     ?string $user = null,
     ?string $pass = null,
     ?int $port = null
-  )
-  {
+  ) {
     $this->host = $host;
     $this->name = $name;
     $this->user = $user;
@@ -316,8 +315,7 @@ class MySql extends AbstractEngine implements EngineInterface
     string $table,
     array $data,
     bool $withPrimary = false
-  ): array
-  {
+  ): array {
     $columns = $this->getColumns($table);
 
     $valid = [];

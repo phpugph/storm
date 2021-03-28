@@ -88,8 +88,7 @@ class PostGreSql extends AbstractEngine implements EngineInterface
     ?string $user = null,
     ?string $pass = null,
     ?int $port = null
-  )
-  {
+  ) {
     $this->host = $host;
     $this->name = $name;
     $this->user = $user;
