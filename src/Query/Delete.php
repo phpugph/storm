@@ -77,8 +77,7 @@ class Delete extends AbstractQuery implements QueryInterface
     string $table,
     string $where,
     bool $using = true
-  ): QueryInterface
-  {
+  ): QueryInterface {
     $linkage = sprintf('ON (%s)', $where);
     if ($using) {
       $linkage = sprintf('USING (%s)', $where);

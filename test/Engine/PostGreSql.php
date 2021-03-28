@@ -26,8 +26,8 @@ class Storm_Engine_PostGreSql_Test extends TestCase
    */
   protected function setUp(): void
   {
-    $this->object = SqlFactory::load(include(dirname(__DIR__).'/assets/pgsql.php'));
-    $schema = file_get_contents(dirname(__DIR__).'/assets/pgsql-schema.sql');
+    $this->object = SqlFactory::load(include dirname(__DIR__) . '/assets/pgsql.php');
+    $schema = file_get_contents(dirname(__DIR__) . '/assets/pgsql-schema.sql');
     $this->object->query($schema);
   }
 
@@ -44,7 +44,7 @@ class Storm_Engine_PostGreSql_Test extends TestCase
    */
   public function testConnect()
   {
-    $instance = $this->object->connect(include(__DIR__.'/assets/pgsql.php'));
+    $instance = $this->object->connect(include dirname(__DIR__) . '/assets/pgsql.php');
     $this->assertInstanceOf('Storm\Engine\PostGreSql', $instance);
   }
 
@@ -54,7 +54,7 @@ class Storm_Engine_PostGreSql_Test extends TestCase
   public function testGetAlterQuery()
   {
     $instance = $this->object->getAlterQuery('foobar');
-    $this->assertInstanceOf('Storm\Engine\PostGreSql\QueryAlter', $instance);
+    $this->assertInstanceOf('Storm\Query\PostGreSql\Alter', $instance);
   }
 
   /**
@@ -72,7 +72,7 @@ class Storm_Engine_PostGreSql_Test extends TestCase
   public function testGetCreateQuery()
   {
     $instance = $this->object->getCreateQuery('foobar');
-    $this->assertInstanceOf('Storm\Engine\PostGreSql\QueryCreate', $instance);
+    $this->assertInstanceOf('Storm\Query\PostGreSql\Create', $instance);
   }
 
   /**
@@ -81,7 +81,7 @@ class Storm_Engine_PostGreSql_Test extends TestCase
   public function testGetDeleteQuery()
   {
     $instance = $this->object->getDeleteQuery('foobar');
-    $this->assertInstanceOf('Storm\Engine\PostGreSql\QueryDelete', $instance);
+    $this->assertInstanceOf('Storm\Query\PostGreSql\Delete', $instance);
   }
 
   /**
@@ -99,7 +99,7 @@ class Storm_Engine_PostGreSql_Test extends TestCase
   public function testGetInsertQuery()
   {
     $instance = $this->object->getInsertQuery('foobar');
-    $this->assertInstanceOf('Storm\Engine\PostGreSql\QueryInsert', $instance);
+    $this->assertInstanceOf('Storm\Query\PostGreSql\Insert', $instance);
   }
 
   /**
@@ -117,7 +117,7 @@ class Storm_Engine_PostGreSql_Test extends TestCase
   public function testGetSelectQuery()
   {
     $instance = $this->object->getSelectQuery('foobar');
-    $this->assertInstanceOf('Storm\Engine\PostGreSql\QuerySelect', $instance);
+    $this->assertInstanceOf('Storm\Query\PostGreSql\Select', $instance);
   }
 
   /**
@@ -135,7 +135,7 @@ class Storm_Engine_PostGreSql_Test extends TestCase
   public function testGetUpdateQuery()
   {
     $instance = $this->object->getUpdateQuery('foobar');
-    $this->assertInstanceOf('Storm\Engine\PostGreSql\QueryUpdate', $instance);
+    $this->assertInstanceOf('Storm\Query\PostGreSql\Update', $instance);
   }
 
   /**
@@ -153,96 +153,6 @@ class Storm_Engine_PostGreSql_Test extends TestCase
   public function testGetUtilityQuery()
   {
     $instance = $this->object->getUtilityQuery();
-    $this->assertInstanceOf('Storm\Engine\PostGreSql\QueryUtility', $instance);
-  }
-
-  /**
-   * @covers Storm\Engine\AbstractEngine::loop
-   */
-  public function testLoop()
-  {
-    $self = $this;
-    $this->object->loop(function($i) use ($self) {
-      $self->assertInstanceOf('Storm\Engine\PostGreSql', $this);
-
-      if ($i == 2) {
-        return false;
-      }
-    });
-  }
-
-  /**
-   * @covers Storm\Engine\AbstractEngine::when
-   */
-  public function testWhen()
-  {
-    $self = $this;
-    $test = 'Good';
-    $this->object->when(function() use ($self) {
-      $self->assertInstanceOf('Storm\Engine\PostGreSql', $this);
-      return false;
-    }, function() use ($self, &$test) {
-      $self->assertInstanceOf('Storm\Engine\PostGreSql', $this);
-      $test = 'Bad';
-    });
-  }
-
-  /**
-   * @covers Storm\Engine\AbstractEngine::getInspectorHandler
-   */
-  public function testGetInspectorHandler()
-  {
-    $instance = $this->object->getInspectorHandler();
-    $this->assertInstanceOf('UGComponents\Profiler\PostGreSql', $instance);
-  }
-
-  /**
-   * @covers Storm\Engine\AbstractEngine::inspect
-   */
-  public function testInspect()
-  {
-    ob_start();
-    $this->object->inspect('foobar');
-    $contents = ob_get_contents();
-    ob_end_clean();
-
-    $this->assertEquals(
-      '<pre>INSPECTING Variable:</pre><pre>foobar</pre>',
-      $contents
-    );
-  }
-
-  /**
-   * @covers Storm\Engine\AbstractEngine::setInspectorHandler
-   */
-  public function testSetInspectorHandler()
-  {
-    $instance = $this->object->setInspectorHandler(new InspectorHandler);
-    $this->assertInstanceOf('Storm\Engine\PostGreSql', $instance);
-  }
-
-  /**
-   * @covers Storm\Engine\AbstractEngine::addLogger
-   */
-  public function testAddLogger()
-  {
-    $instance = $this->object->addLogger(function() {});
-    $this->assertInstanceOf('Storm\Engine\PostGreSql', $instance);
-  }
-
-  /**
-   * @covers Storm\Engine\AbstractEngine::log
-   */
-  public function testLog()
-  {
-    $trigger = new StdClass();
-    $trigger->success = null;
-    $this->object->addLogger(function($trigger) {
-      $trigger->success = true;
-    })
-    ->log($trigger);
-
-
-    $this->assertTrue($trigger->success);
+    $this->assertInstanceOf('Storm\Query\PostGreSql\Utility', $instance);
   }
 }

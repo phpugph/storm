@@ -137,8 +137,7 @@ class Storm_Engine_MySql_Test extends TestCase
   }
 
   /**
-   * @covers Storm\AbstractSql::query
-   * @covers Storm\Search::getRows
+   * @covers Storm\Mapper\Search::getRows
    */
   public function testQuery()
   {
@@ -170,8 +169,7 @@ class Storm_Engine_MySql_Test extends TestCase
   }
 
   /**
-   * @covers Storm\AbstractSql::transaction
-   * @covers Storm\Search::getTotal
+   * @covers Storm\Mapper\Search::getTotal
    */
   public function testTransaction()
   {
@@ -218,95 +216,5 @@ class Storm_Engine_MySql_Test extends TestCase
 
     $this->assertTrue($triggered);
     $this->assertEquals($total + 1, $this->object->search('address')->getTotal());
-  }
-
-  /**
-   * @covers Storm\Engine\AbstractEngine::loop
-   */
-  public function testLoop()
-  {
-    $self = $this;
-    $this->object->loop(function($i) use ($self) {
-      $self->assertInstanceOf('Storm\Engine\MySql', $this);
-
-      if ($i == 2) {
-        return false;
-      }
-    });
-  }
-
-  /**
-   * @covers Storm\Engine\AbstractEngine::when
-   */
-  public function testWhen()
-  {
-    $self = $this;
-    $test = 'Good';
-    $this->object->when(function() use ($self) {
-      $self->assertInstanceOf('Storm\Engine\MySql', $this);
-      return false;
-    }, function() use ($self, &$test) {
-      $self->assertInstanceOf('Storm\Engine\MySql', $this);
-      $test = 'Bad';
-    });
-  }
-
-  /**
-   * @covers Storm\Engine\AbstractEngine::getInspectorHandler
-   */
-  public function testGetInspectorHandler()
-  {
-    $instance = $this->object->getInspectorHandler();
-    $this->assertInstanceOf('UGComponents\Profiler\InspectorHandler', $instance);
-  }
-
-  /**
-   * @covers Storm\Engine\AbstractEngine::inspect
-   */
-  public function testInspect()
-  {
-    ob_start();
-    $this->object->inspect('foobar');
-    $contents = ob_get_contents();
-    ob_end_clean();
-
-    $this->assertEquals(
-      '<pre>INSPECTING Variable:</pre><pre>foobar</pre>',
-      $contents
-    );
-  }
-
-  /**
-   * @covers Storm\Engine\AbstractEngine::setInspectorHandler
-   */
-  public function testSetInspectorHandler()
-  {
-    $instance = $this->object->setInspectorHandler(new InspectorHandler);
-    $this->assertInstanceOf('Storm\Engine\MySql', $instance);
-  }
-
-  /**
-   * @covers Storm\Engine\AbstractEngine::addLogger
-   */
-  public function testAddLogger()
-  {
-    $instance = $this->object->addLogger(function() {});
-    $this->assertInstanceOf('Storm\Engine\MySql', $instance);
-  }
-
-  /**
-   * @covers Storm\Engine\AbstractEngine::log
-   */
-  public function testLog()
-  {
-    $trigger = new StdClass();
-    $trigger->success = null;
-    $this->object->addLogger(function($trigger) {
-      $trigger->success = true;
-    })
-    ->log($trigger);
-
-
-    $this->assertTrue($trigger->success);
   }
 }

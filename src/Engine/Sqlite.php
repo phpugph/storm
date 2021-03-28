@@ -149,7 +149,7 @@ class Sqlite extends AbstractEngine implements EngineInterface
   public function getPrimaryKey(string $table): string
   {
     $results = $this->getColumns($table, "`Key` = 'PRI'");
-    return isset($results[0]['Field']) ? $results[0]['Field'] : null;
+    return $results[0]['Field'];
   }
 
   /**
@@ -179,8 +179,7 @@ class Sqlite extends AbstractEngine implements EngineInterface
     string $table,
     array $settings,
     $bind = true
-  ): EngineInterface
-  {
+  ): EngineInterface {
     //this is an array of arrays
     foreach ($settings as $index => $setting) {
       //Sqlite no available multi insert

@@ -145,7 +145,8 @@ class Remove extends AbstractMapper implements MapperInterface
    *
    * @return string
    */
-  public function getQuery(): QueryInterface {
+  public function getQuery(): QueryInterface
+  {
     $query = $this->database->getDeleteQuery()->setTable($this->table);
 
     foreach ($this->joins as $join) {
@@ -191,8 +192,7 @@ class Remove extends AbstractMapper implements MapperInterface
     string $table,
     string $where,
     ...$binds
-  ): MapperInterface
-  {
+  ): MapperInterface {
     $this->joins[] = [
       'type' => static::INNER,
       'table' => $table,
@@ -217,8 +217,7 @@ class Remove extends AbstractMapper implements MapperInterface
     string $table,
     string $where,
     ...$binds
-  ): MapperInterface
-  {
+  ): MapperInterface {
     $this->joins[] = [
       'type' => static::INNER,
       'table' => $table,
@@ -243,8 +242,7 @@ class Remove extends AbstractMapper implements MapperInterface
     string $table,
     string $where,
     ...$binds
-  ): MapperInterface
-  {
+  ): MapperInterface {
     $this->joins[] = [
       'type' => static::LEFT,
       'table' => $table,
@@ -269,8 +267,7 @@ class Remove extends AbstractMapper implements MapperInterface
     string $table,
     string $where,
     ...$binds
-  ): MapperInterface
-  {
+  ): MapperInterface {
     $this->joins[] = [
       'type' => static::LEFT,
       'table' => $table,
@@ -295,8 +292,7 @@ class Remove extends AbstractMapper implements MapperInterface
     string $table,
     string $where,
     ...$binds
-  ): MapperInterface
-  {
+  ): MapperInterface {
     $this->joins[] = [
       'type' => static::OUTER,
       'table' => $table,
@@ -321,8 +317,7 @@ class Remove extends AbstractMapper implements MapperInterface
     string $table,
     string $where,
     ...$binds
-  ): MapperInterface
-  {
+  ): MapperInterface {
     $this->joins[] = [
       'type' => static::OUTER,
       'table' => $table,
@@ -347,8 +342,7 @@ class Remove extends AbstractMapper implements MapperInterface
     string $table,
     string $where,
     ...$binds
-  ): MapperInterface
-  {
+  ): MapperInterface {
     $this->joins[] = [
       'type' => static::RIGHT,
       'table' => $table,
@@ -373,8 +367,7 @@ class Remove extends AbstractMapper implements MapperInterface
     string $table,
     string $where,
     ...$binds
-  ): MapperInterface
-  {
+  ): MapperInterface {
     $this->joins[] = [
       'type' => static::RIGHT,
       'table' => $table,
