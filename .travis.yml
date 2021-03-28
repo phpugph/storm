@@ -4,12 +4,6 @@ php:
 env:
   global:
     - XDEBUG_MODE=coverage
-addons:
-  apt:
-    sources:
-      - travis-ci/sqlite3
-    packages:
-      - sqlite3
 services:
   - mysql
   - postgresql
@@ -20,6 +14,12 @@ before_script:
   - mkdir -p build/logs
   - mysql -e 'create database testing_db;'
   - psql -c 'create database testing_db;' -U postgres
+  - sudo apt-get autoremove sqlite3
+  - sudo apt-get install python-software-properties
+  - sudo apt-add-repository -y ppa:travis-ci/sqlite3
+  - sudo apt-get -y update
+  - sudo apt-cache show sqlite3
+  - sudo apt-get install sqlite3
   - sudo sqlite3 -version
   - sudo psql --version
   - sudo mysql --version
