@@ -149,7 +149,7 @@ class Sqlite extends AbstractEngine implements EngineInterface
   public function getPrimaryKey(string $table): string
   {
     $results = $this->getColumns($table, "`Key` = 'PRI'");
-    return isset($results[0]['Field']) ? $results[0]['Field'] : null;
+    return $results[0]['Field'];
   }
 
   /**
