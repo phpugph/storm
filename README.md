@@ -1,5 +1,5 @@
 # Storm
-A Search Collection Model Kind of SQL Client
+PHP8 SCM SQL Client
 
 [![Travis CI](https://travis-ci.org/phpugph/Storm.svg?branch=master)](https://travis-ci.org/phpugph/storm)
 [![Coverage Status](https://coveralls.io/repos/github/phpugph/Storm/badge.svg?branch=master)](https://coveralls.io/github/phpugph/storm?branch=master)
