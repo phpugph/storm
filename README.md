@@ -1,8 +1,8 @@
 # Storm
 PHP8 SCM SQL Client
 
-[![Travis CI](https://travis-ci.org/phpugph/Storm.svg?branch=master)](https://travis-ci.org/phpugph/storm)
-[![Coverage Status](https://coveralls.io/repos/github/phpugph/Storm/badge.svg?branch=master)](https://coveralls.io/github/phpugph/storm?branch=master)
+[![Build Status](https://travis-ci.com/phpugph/storm.svg?branch=main)](https://travis-ci.com/phpugph/storm)
+[![Coverage Status](https://coveralls.io/repos/github/phpugph/storm/badge.svg?branch=main)](https://coveralls.io/github/phpugph/storm?branch=main)
 [![Latest Stable Version](https://poser.pugx.org/phpugph/storm/v/stable)](https://packagist.org/packages/phpugph/storm)
 [![Total Downloads](https://poser.pugx.org/phpugph/storm/downloads)](https://packagist.org/packages/phpugph/storm)
 [![Latest Unstable Version](https://poser.pugx.org/phpugph/storm/v/unstable)](https://packagist.org/packages/phpugph/storm)
