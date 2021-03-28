@@ -178,10 +178,10 @@ class PostGreSql extends AbstractEngine implements EngineInterface
     $query = $this
       ->getSelectQuery($select)
       ->from('pg_attribute')
-      ->innerJoin('pg_class AS pg_class1', $where[0], false)
-      ->innerJoin('information_schema.COLUMNS  AS columns', $where[1], false)
-      ->leftJoin('pg_index', $where[2], false)
-      ->leftJoin('pg_class AS pg_class2', $where[3], false)
+      ->join('inner', 'pg_class AS pg_class1', $where[0], false)
+      ->join('inner', 'information_schema.COLUMNS  AS columns', $where[1], false)
+      ->join('left', 'pg_index', $where[2], false)
+      ->join('left', 'pg_class AS pg_class2', $where[3], false)
       ->getQuery();
 
     $results = $this->query($query);
@@ -260,10 +260,10 @@ class PostGreSql extends AbstractEngine implements EngineInterface
     $query = $this
       ->getSelectQuery($select)
       ->from('pg_attribute')
-      ->innerJoin('pg_class AS pg_class1', $where[0], false)
-      ->innerJoin('information_schema.COLUMNS  AS columns', $where[1], false)
-      ->innerJoin('pg_index', $where[2], false)
-      ->innerJoin('pg_class AS pg_class2', $where[3], false)
+      ->join('inner', 'pg_class AS pg_class1', $where[0], false)
+      ->join('inner', 'information_schema.COLUMNS  AS columns', $where[1], false)
+      ->join('inner', 'pg_index', $where[2], false)
+      ->join('inner', 'pg_class AS pg_class2', $where[3], false)
       ->getQuery();
 
     return $this->query($query);
@@ -306,10 +306,10 @@ class PostGreSql extends AbstractEngine implements EngineInterface
     $query = $this
       ->getSelectQuery($select)
       ->from('pg_attribute')
-      ->innerJoin('pg_class AS pg_class1', $where[0], false)
-      ->innerJoin('information_schema.COLUMNS  AS columns', $where[1], false)
-      ->innerJoin('pg_index', $where[2], false)
-      ->innerJoin('pg_class AS pg_class2', $where[3], false)
+      ->join('inner', 'pg_class AS pg_class1', $where[0], false)
+      ->join('inner', 'information_schema.COLUMNS  AS columns', $where[1], false)
+      ->join('inner', 'pg_index', $where[2], false)
+      ->join('inner', 'pg_class AS pg_class2', $where[3], false)
       ->where('pg_class2.relname LIKE \'%_pkey\'')
       ->getQuery();
 

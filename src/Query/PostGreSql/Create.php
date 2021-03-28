@@ -31,11 +31,6 @@ class Create extends AbstractQuery implements QueryInterface
   protected $primaryKeys = [];
 
   /**
-   * @var array $oids Whether to use OIDs
-   */
-  protected $oids = false;
-
-  /**
    * Construct: set table name, if given
    *
    * @param ?string $table Table name
@@ -125,13 +120,12 @@ class Create extends AbstractQuery implements QueryInterface
       $fields[] = implode(' ', $field);
     }
 
-    $oids = $this->oids ? 'WITH OIDS': null;
     $fields = !empty($fields) ? implode(', ', $fields) : '';
     $primary = !empty($this->primaryKeys) ?
       ', PRIMARY KEY ("'.implode('", ""', $this->primaryKeys).'")' :
       '';
 
-    return sprintf('CREATE TABLE %s (%s%s) %s;', $table, $fields, $primary, $oids);
+    return sprintf('CREATE TABLE %s (%s%s);', $table, $fields, $primary);
   }
 
   /**
@@ -157,19 +151,6 @@ class Create extends AbstractQuery implements QueryInterface
   public function setPrimaryKeys(array $primaryKeys)
   {
     $this->primaryKeys = $primaryKeys;
-    return $this;
-  }
-
-  /**
-   * Specifying if query should add the OIDs as columns
-   *
-   * @param bool $oids true or false
-   *
-   * @return QueryCreate
-   */
-  public function withOids($oids)
-  {
-    $this->oids = $oids;
     return $this;
   }
 }

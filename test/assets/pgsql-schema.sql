@@ -10,10 +10,7 @@ CREATE TABLE IF NOT EXISTS address
   address_country character varying(255) NOT NULL,
   address_postal character varying(255) NOT NULL,
   address_landmarks character varying(255) DEFAULT NULL,
-  
+
   CONSTRAINT address_pk PRIMARY KEY (address_id),
   CONSTRAINT address_address_id_check CHECK (address_id >= 0)
-)
-WITH (
-  OIDS=TRUE
 );

@@ -62,9 +62,8 @@ class Storm_Query_PostGreSql_Create_Test extends TestCase
       'length'  => 255
     ));
     $this->object->addPrimaryKey('foobar');
-    $this->object->withOids(123);
     $actual = $this->object->getQuery();
-    $this->assertEquals('CREATE TABLE "foobar" ("foobar" varchar(255) unsigned DEFAULT NULL, PRIMARY KEY ("foobar")) WITH OIDS;', $actual);
+    $this->assertEquals('CREATE TABLE "foobar" ("foobar" varchar(255) unsigned DEFAULT NULL, PRIMARY KEY ("foobar"));', $actual);
   }
 
   /**
@@ -91,15 +90,6 @@ class Storm_Query_PostGreSql_Create_Test extends TestCase
   public function testSetPrimaryKeys()
   {
     $instance = $this->object->setPrimaryKeys(array('foobar'));
-    $this->assertInstanceOf('Storm\Query\PostGreSql\Create', $instance);
-  }
-
-  /**
-   * @covers Storm\Query\PostGreSql\Create::withOids
-   */
-  public function testWithOids()
-  {
-    $instance = $this->object->withOids(123);
     $this->assertInstanceOf('Storm\Query\PostGreSql\Create', $instance);
   }
 }
