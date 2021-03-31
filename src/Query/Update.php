@@ -35,7 +35,7 @@ class Update extends Delete implements QueryInterface
     }
 
     $where = '';
-    if (!empty($this->joins)) {
+    if (!empty($this->where)) {
       $where = sprintf('WHERE %s', implode(' AND ', $this->where));
     }
 

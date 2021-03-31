@@ -1,7 +1,7 @@
 {
   "name": "phpugph/storm",
   "type": "library",
-  "description": "A Search Collection Model Kind of SQL Client",
+  "description": "PHP8 SCM SQL Client",
   "keywords": [
     "orm",
     "mysql",
