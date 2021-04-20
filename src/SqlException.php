@@ -40,6 +40,11 @@ class SqlException extends Exception
   const UNKNOWN_PDO = 'Could not match an SQL handler with %s';
 
   /**
+   * @const string MISCONFIGURATION Error template
+   */
+  const MISCONFIGURATION = 'Configuration provided is not valid';
+
+  /**
    * Create a new exception for query errors
    *
    * @param *string $query
@@ -82,5 +87,15 @@ class SqlException extends Exception
   public static function forUnknownPDO($name)
   {
     return new static(sprintf(static::UNKNOWN_PDO, $name));
+  }
+
+  /**
+   * Create a new exception for misconfiguration
+   *
+   * @return SqlException
+   */
+  public static function forMisconfiguration()
+  {
+    return new static(static::MISCONFIGURATION);
   }
 }
