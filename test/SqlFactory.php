@@ -27,6 +27,7 @@ class Storm_SqlFactory_Test extends TestCase
 
   /**
    * @covers Storm\SqlFactory::load
+   * @covers Storm\SqlFactory::loadPDO
    */
   public function testLoad()
   {

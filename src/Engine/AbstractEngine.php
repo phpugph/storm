@@ -12,6 +12,7 @@ use StdClass;
 use Closure;
 use PDO;
 use ReflectionClass;
+use PDOException;
 
 use UGComponents\Resolver\StateTrait;
 
@@ -481,17 +482,28 @@ abstract class AbstractEngine
     }
 
     //PDO Execute
-    if (!$stmt->execute()) {
-      $error = $stmt->errorInfo();
+    try {
+      if (!$stmt->execute()) {
+        $error = $stmt->errorInfo();
 
+        //unpack binds for the report
+        foreach ($binds as $key => $value) {
+          $query = str_replace($key, "'$value'", $query);
+        }
+
+        //throw Exception
+        throw SqlException::forQueryError($query, $error[2]);
+      }
+    } catch (PDOException $e) {
       //unpack binds for the report
       foreach ($binds as $key => $value) {
         $query = str_replace($key, "'$value'", $query);
       }
 
       //throw Exception
-      throw SqlException::forQueryError($query, $error[2]);
+      throw SqlException::forQueryError($query, $e->getMessage());
     }
+
 
     //clear binds
     $this->binds = [];

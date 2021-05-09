@@ -145,7 +145,11 @@ class Create extends AbstractQuery implements QueryInterface
       if (isset($attr['default'])&& $attr['default'] !== false) {
         if (!isset($attr['null']) || $attr['null'] == false) {
           if (is_string($attr['default'])) {
-            $field[] = 'DEFAULT \''.$attr['default'] . '\'';
+            if (preg_match('/[a-zA-Z0-9_]+\([^\)]*\)/is', $attr['default'])) {
+              $field[] = 'DEFAULT '.$attr['default'];
+            } else {
+              $field[] = 'DEFAULT \''.$attr['default'] . '\'';
+            }
           } else if (is_numeric($attr['default'])) {
             $field[] = 'DEFAULT '.$attr['default'];
           }
