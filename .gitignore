@@ -3,3 +3,4 @@
 /logs/
 *.db
 test/assets/sqlite.db
+composer.lock

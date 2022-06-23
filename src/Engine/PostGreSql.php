@@ -189,9 +189,9 @@ class PostGreSql extends AbstractEngine implements EngineInterface
     $columns = [];
     foreach ($results as $column) {
       $key = null;
-      if (strpos($column['index_type'], '_pkey') !== false) {
+      if (strpos((string) $column['index_type'], '_pkey') !== false) {
         $key = 'PRI';
-      } else if (strpos($column['index_type'], '_key') !== false) {
+      } else if (strpos((string) $column['index_type'], '_key') !== false) {
         $key = 'UNI';
       }
 
