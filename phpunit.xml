@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
-  backupGlobals="false"
-  backupStaticAttributes="false"
-  colors="true"
-  convertErrorsToExceptions="true"
-  convertNoticesToExceptions="true"
-  convertWarningsToExceptions="true"
-  processIsolation="false"
-  stopOnFailure="false"
-  bootstrap="test/bootstrap.php"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  backupGlobals="false" 
+  colors="true" 
+  processIsolation="false" 
+  stopOnFailure="false" 
+  bootstrap="test/bootstrap.php" 
+  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.3/phpunit.xsd" 
+  cacheDirectory=".phpunit.cache" 
+  backupStaticProperties="false"
 >
   <testsuites>
     <testsuite name="Storm Factory Tests">
-      <file>test/SqlFactory.php</file>
-      <file>test/SqlException.php</file>
+      <file>test/SqlFactoryTest.php</file>
+      <file>test/SqlExceptionTest.php</file>
     </testsuite>
     <testsuite name="Storm Query Tests">
-      <file>test/Query/AbstractQuery.php</file>
-      <file>test/Query/Delete.php</file>
-      <file>test/Query/Insert.php</file>
-      <file>test/Query/Select.php</file>
-      <file>test/Query/Update.php</file>
-      <file>test/Query/MySql/Alter.php</file>
-      <file>test/Query/MySql/Create.php</file>
-      <file>test/Query/MySql/Utility.php</file>
-      <file>test/Query/PostGreSql/Alter.php</file>
-      <file>test/Query/PostGreSql/Create.php</file>
-      <file>test/Query/PostGreSql/Delete.php</file>
-      <file>test/Query/PostGreSql/Insert.php</file>
-      <file>test/Query/PostGreSql/Select.php</file>
-      <file>test/Query/PostGreSql/Update.php</file>
-      <file>test/Query/PostGreSql/Utility.php</file>
-      <file>test/Query/Sqlite/Alter.php</file>
-      <file>test/Query/Sqlite/Create.php</file>
-      <file>test/Query/Sqlite/Utility.php</file>
+      <file>test/Query/AbstractQueryTest.php</file>
+      <file>test/Query/DeleteTest.php</file>
+      <file>test/Query/InsertTest.php</file>
+      <file>test/Query/SelectTest.php</file>
+      <file>test/Query/UpdateTest.php</file>
+      <file>test/Query/MySql/AlterTest.php</file>
+      <file>test/Query/MySql/CreateTest.php</file>
+      <file>test/Query/MySql/UtilityTest.php</file>
+      <file>test/Query/PostGreSql/AlterTest.php</file>
+      <file>test/Query/PostGreSql/CreateTest.php</file>
+      <file>test/Query/PostGreSql/DeleteTest.php</file>
+      <file>test/Query/PostGreSql/InsertTest.php</file>
+      <file>test/Query/PostGreSql/SelectTest.php</file>
+      <file>test/Query/PostGreSql/UpdateTest.php</file>
+      <file>test/Query/PostGreSql/UtilityTest.php</file>
+      <file>test/Query/Sqlite/AlterTest.php</file>
+      <file>test/Query/Sqlite/CreateTest.php</file>
+      <file>test/Query/Sqlite/UtilityTest.php</file>
     </testsuite>
     <testsuite name="Storm Mapper Tests">
-      <file>test/Mapper/Model.php</file>
-      <file>test/Mapper/Search.php</file>
-      <file>test/Mapper/Collection.php</file>
-      <file>test/Mapper/Remove.php</file>
+      <file>test/Mapper/ModelTest.php</file>
+      <file>test/Mapper/SearchTest.php</file>
+      <file>test/Mapper/CollectionTest.php</file>
+      <file>test/Mapper/RemoveTest.php</file>
     </testsuite>
     <testsuite name="Storm Engine Tests">
-      <file>test/Engine/AbstractEngine.php</file>
-      <file>test/Engine/MySql.php</file>
-      <file>test/Engine/PostGreSql.php</file>
+      <file>test/Engine/AbstractEngineTest.php</file>
+      <file>test/Engine/MySqlTest.php</file>
+      <file>test/Engine/PostGreSqlTest.php</file>
       <!--<file>test/Engine/Sqlite.php</file>-->
     </testsuite>
   </testsuites>
-
-  <coverage processUncoveredFiles="false" pathCoverage="true">
+  <coverage pathCoverage="true"/>
+  <source>
     <include>
       <directory suffix=".php">./src</directory>
     </include>
@@ -57,5 +57,5 @@
       <directory>./vendor</directory>
       <directory>./test</directory>
     </exclude>
-  </coverage>
+  </source>
 </phpunit>

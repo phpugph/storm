@@ -47,14 +47,14 @@ class Sqlite extends AbstractEngine implements EngineInterface
   /**
    * @var string $path Sqlite file path
    */
-  protected $path = null;
+  protected ?string $path = null;
 
   /**
    * Construct: Store connection information
    *
    * @param *string $path Sqlite file path
    */
-  public function __construct($path)
+  public function __construct(string $path)
   {
     $this->path = $path;
   }

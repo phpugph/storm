@@ -33,6 +33,11 @@ class Select extends Delete implements QueryInterface
   protected $group = [];
 
   /**
+   * @var array $having List of "havings"
+   */
+  protected $having = [];
+
+  /**
    * @var int|null $page Pagination start
    */
   protected $page = null;

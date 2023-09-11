@@ -48,22 +48,27 @@ class MySql extends AbstractEngine implements EngineInterface
   /**
    * @var string $host Database host
    */
-  protected $host = 'localhost';
+  protected string $host = 'localhost';
 
   /**
    * @var ?string $name Database name
    */
-  protected $name = null;
+  protected ?string $name = null;
 
   /**
    * @var ?string $user Database user name
    */
-  protected $user = null;
+  protected ?string $user = null;
 
   /**
    * @var ?string $pass Database password
    */
-  protected $pass = null;
+  protected ?string $pass = null;
+
+  /**
+   * @var ?string $port Database port
+   */
+  protected ?string $port = null;
 
   /**
    * Construct: Store connection information
